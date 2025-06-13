@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Premium - Trải Nghiệm Giải Trí Đỉnh Cao</title>
+    <title>Netflix HADU</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Healing Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
-            --netflix-red: #E50914;
-            --netflix-dark: #141414;
-            --netflix-gray: #564d4d;
-            --netflix-light: #f5f5f1;
-            --gradient-primary: linear-gradient(135deg, #E50914 0%, #ff1e2d 100%);
-            --gradient-dark: linear-gradient(135deg, #141414 0%, #2d1b1b 50%, #1a0a0a 100%);
-            --shadow-glow: 0 0 30px rgba(229, 9, 20, 0.3);
-            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --healing-green: #7FB069;
+            --soft-blue: #A8DADC;
+            --warm-peach: #F1FAEE;
+            --gentle-coral: #E63946;
+            --lavender: #B19CD9;
+            --sage-green: #95A5A6;
+            --cream: #FFF8E7;
+            --soft-gray: #F8F9FA;
+            --text-dark: #2C3E50;
+            --text-muted: #6C757D;
+            --gradient-healing: linear-gradient(135deg, #7FB069 0%, #A8DADC 50%, #B19CD9 100%);
+            --gradient-soft: linear-gradient(135deg, #F1FAEE 0%, #A8DADC 100%);
+            --shadow-soft: 0 10px 30px rgba(127, 176, 105, 0.2);
+            --shadow-gentle: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         * {
@@ -39,35 +42,36 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--netflix-dark);
-            color: white;
+            font-family: 'Quicksand', 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
-        /* Enhanced Background Animation */
-        .animated-bg {
+        /* Healing Background */
+        .healing-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-dark);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(127, 176, 105, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(168, 218, 220, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(177, 156, 217, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #FFF8E7 0%, #F1FAEE 100%);
+            animation: gentleFloat 20s ease-in-out infinite;
             z-index: -2;
         }
         
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            25% { background-position: 100% 50%; }
-            50% { background-position: 100% 100%; }
-            75% { background-position: 0% 100%; }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.02); }
         }
         
-        /* Advanced Particle System */
-        .particles-container {
+        /* Floating Nature Elements */
+        .nature-elements {
             position: fixed;
             top: 0;
             left: 0;
@@ -77,279 +81,135 @@
             overflow: hidden;
         }
         
-        .particle {
+        .leaf {
             position: absolute;
-            background: radial-gradient(circle, rgba(229, 9, 20, 0.8) 0%, rgba(229, 9, 20, 0.1) 70%, transparent 100%);
-            border-radius: 50%;
-            animation: floatParticle 25s infinite linear;
-            filter: blur(1px);
+            opacity: 0.3;
+            animation: leafFloat 25s infinite linear;
         }
         
-        .particle:nth-child(odd) {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+        .leaf:nth-child(1) {
+            font-size: 1.5rem;
+            color: var(--healing-green);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
         }
         
-        @keyframes floatParticle {
-            0% { 
-                transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
-                opacity: 0;
-            }
-            10% { 
-                opacity: 1;
-                transform: translateY(90vh) translateX(10px) rotate(45deg) scale(1);
-            }
-            50% { 
-                transform: translateY(50vh) translateX(-20px) rotate(180deg) scale(1.2);
-            }
-            90% { 
-                opacity: 1;
-                transform: translateY(10vh) translateX(15px) rotate(315deg) scale(0.8);
-            }
-            100% { 
-                transform: translateY(-10vh) translateX(0) rotate(360deg) scale(0);
-                opacity: 0;
-            }
+        .leaf:nth-child(2) {
+            font-size: 1.2rem;
+            color: var(--soft-blue);
+            top: 60%;
+            right: 10%;
+            animation-delay: 8s;
         }
         
-        /* Enhanced Navigation */
-        .navbar-custom {
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(229, 9, 20, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        .leaf:nth-child(3) {
+            font-size: 1.8rem;
+            color: var(--lavender);
+            bottom: 30%;
+            left: 15%;
+            animation-delay: 16s;
         }
         
-        .navbar-brand-custom {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: var(--gradient-primary);
+        @keyframes leafFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-30px) rotate(-5deg); }
+            75% { transform: translateY(-15px) rotate(3deg); }
+        }
+        
+        /* Gentle Navigation */
+        .navbar-healing {
+            background: rgba(255, 248, 231, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(127, 176, 105, 0.2);
+            transition: all 0.4s ease;
+            padding: 1.2rem 0;
+            box-shadow: var(--shadow-gentle);
+        }
+        
+        .navbar-brand-healing {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: var(--gradient-healing);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: var(--shadow-glow);
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand-custom:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.5));
-        }
-        
-        .nav-link-custom {
-            color: white !important;
-            font-weight: 500;
-            font-size: 1.1rem;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin: 0 1rem;
-        }
-        
-        .nav-link-custom::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2px;
-        }
-        
-        .nav-link-custom:hover {
-            color: var(--netflix-red) !important;
-            transform: translateY(-2px);
-        }
-        
-        .nav-link-custom:hover::before {
-            width: 100%;
-            left: 0;
-        }
-        
-        /* Hero Section Enhancement */
-        .hero-section {
-            min-height: 100vh;
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(229, 9, 20, 0.1) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(229,9,20,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(20,20,20,0.8);stop-opacity:1" /></radialGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/></svg>');
-            background-size: cover;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            z-index: 10;
-            position: relative;
-        }
-        
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, #ffffff 0%, #E50914 50%, #ff1e2d 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            text-shadow: 0 4px 20px rgba(229, 9, 20, 0.3);
-            letter-spacing: -2px;
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 300;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            max-width: 600px;
-            line-height: 1.5;
-        }
-        
-        /* Enhanced Feature Cards */
-        .feature-card-modern {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(229, 9, 20, 0.2);
-            border-radius: 24px;
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-        
-        .feature-card-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .feature-card-modern::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(229, 9, 20, 0.1) 0%, transparent 70%);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-        }
-        
-        .feature-card-modern:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .feature-card-modern:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .feature-card-modern:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: var(--shadow-card);
-            border-color: rgba(229, 9, 20, 0.5);
-        }
-        
-        .feature-icon-modern {
-            font-size: 4rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Pricing Cards */
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(229, 9, 20, 0.3);
-            border-radius: 24px;
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-        
-        .pricing-card.featured {
-            border-color: var(--netflix-red);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-glow);
-        }
-        
-        .pricing-card.featured::before {
-            content: 'TIẾT KIỆM';
-            position: absolute;
-            top: 20px;
-            right: -40px;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 8px 40px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transform: rotate(45deg);
             letter-spacing: 1px;
         }
         
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-card);
+        .nav-link-healing {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 0 1rem;
+            border-radius: 20px;
+            padding: 0.5rem 1rem !important;
         }
         
-        .pricing-card.featured:hover {
-            transform: translateY(-10px) scale(1.05);
+        .nav-link-healing:hover {
+            color: var(--healing-green) !important;
+            background: rgba(127, 176, 105, 0.1);
+            transform: translateY(-2px);
         }
         
-        .price-amount {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 4rem;
-            font-weight: 900;
-            background: var(--gradient-primary);
+        /* Hero Section */
+        .hero-healing {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--gradient-soft);
+        }
+        
+        .hero-title-healing {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 600;
+            background: var(--gradient-healing);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1;
-            margin: 1rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: -1px;
+            line-height: 1.1;
         }
         
-        /* Enhanced Buttons */
-        .btn-netflix {
-            background: var(--gradient-primary);
+        .hero-subtitle-healing {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Gentle Buttons */
+        .btn-healing {
+            background: var(--gradient-healing);
             border: none;
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 700;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 500;
             border-radius: 50px;
             color: white;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-soft);
             position: relative;
             overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
-        .btn-netflix::before {
+        .btn-healing::before {
             content: '';
             position: absolute;
             top: 0;
@@ -357,76 +217,242 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: left 0.6s ease;
         }
         
-        .btn-netflix:hover::before {
+        .btn-healing:hover::before {
             left: 100%;
         }
         
-        .btn-netflix:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(229, 9, 20, 0.6);
+        .btn-healing:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(127, 176, 105, 0.3);
             color: white;
-            text-decoration: none;
+        }
+        
+        .btn-soft {
+            background: linear-gradient(135deg, var(--soft-blue) 0%, var(--lavender) 100%);
+            box-shadow: 0 10px 30px rgba(168, 218, 220, 0.3);
+        }
+        
+        .btn-soft:hover {
+            box-shadow: 0 15px 35px rgba(168, 218, 220, 0.4);
+        }
+        
+        /* Service Cards */
+        .service-card-healing {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(127, 176, 105, 0.2);
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: var(--shadow-gentle);
+        }
+        
+        .service-card-healing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-healing);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card-healing:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card-healing:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--healing-green);
+        }
+        
+        .service-icon-healing {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--healing-green);
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .service-title-healing {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .service-desc-healing {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card-healing {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(127, 176, 105, 0.2);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: var(--shadow-gentle);
+        }
+        
+        .pricing-card-healing.featured {
+            border-color: var(--healing-green);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-soft);
+            background: rgba(127, 176, 105, 0.05);
+        }
+        
+        .pricing-card-healing:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--soft-blue);
+        }
+        
+        .pricing-card-healing.featured:hover {
+            transform: translateY(-15px) scale(1.05);
+        }
+        
+        .price-tag-healing {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-healing);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1.5rem 0;
+        }
+        
+        .price-duration-healing {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        /* Section Headers */
+        .section-header-healing {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title-healing {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 600;
+            background: var(--gradient-healing);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle-healing {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Feature List */
+        .feature-list-healing {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .feature-list-healing li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .feature-list-healing li i {
+            color: var(--healing-green);
+            margin-right: 1rem;
+            font-size: 1.1rem;
         }
         
         /* Contact Section */
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(229, 9, 20, 0.3);
-            border-radius: 20px;
+        .contact-card-healing {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(127, 176, 105, 0.3);
+            border-radius: 30px;
             padding: 3rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow-soft);
         }
         
-        .zalo-btn {
-            background: #0068FF;
+        .zalo-btn-healing {
+            background: linear-gradient(135deg, #0068FF 0%, #4A90E2 100%);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.1rem;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             box-shadow: 0 10px 30px rgba(0, 104, 255, 0.3);
         }
         
-        .zalo-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 104, 255, 0.5);
+        .zalo-btn-healing:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 104, 255, 0.4);
             color: white;
-            text-decoration: none;
         }
         
         /* FAQ Section */
-        .faq-item {
-            background: rgba(255, 255, 255, 0.05);
+        .faq-item-healing {
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(229, 9, 20, 0.2);
-            border-radius: 16px;
+            border: 1px solid rgba(127, 176, 105, 0.2);
+            border-radius: 20px;
             margin-bottom: 1rem;
             overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-gentle);
         }
         
-        .faq-item:hover {
-            border-color: rgba(229, 9, 20, 0.5);
-            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.1);
+        .faq-item-healing:hover {
+            border-color: var(--healing-green);
+            box-shadow: var(--shadow-soft);
         }
         
-        .faq-question {
+        .faq-question-healing {
             background: none;
             border: none;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
             padding: 1.5rem 2rem;
             width: 100%;
             text-align: left;
@@ -437,44 +463,181 @@
             transition: all 0.3s ease;
         }
         
-        .faq-question:hover {
-            background: rgba(229, 9, 20, 0.1);
+        .faq-question-healing:hover {
+            background: rgba(127, 176, 105, 0.1);
+            color: var(--healing-green);
         }
         
-        .faq-answer {
+        .faq-answer-healing {
             padding: 0 2rem 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-muted);
             line-height: 1.6;
             display: none;
         }
         
-        .faq-answer.show {
+        .faq-answer-healing.show {
             display: block;
         }
         
+        /* Testimonial Cards */
+        .testimonial-card-healing {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(127, 176, 105, 0.2);
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            height: 100%;
+            box-shadow: var(--shadow-gentle);
+        }
+        
+        .testimonial-card-healing:hover {
+            transform: translateY(-10px);
+            border-color: var(--healing-green);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* QR Code */
+        .qr-code-healing {
+            max-width: 180px;
+            border-radius: 15px;
+            padding: 10px;
+            background: white;
+            box-shadow: var(--shadow-gentle);
+            border: 2px solid rgba(127, 176, 105, 0.2);
+            transition: all 0.4s ease;
+            margin: 0 auto;
+        }
+        
+        .qr-code-healing:hover {
+            transform: scale(1.05);
+            border-color: var(--healing-green);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* Trending Section Styles */
+        .trending-list-healing {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .trending-item-healing {
+            flex: 0 0 auto;
+            width: calc(20% - 15px);
+            transition: all 0.4s ease;
+        }
+        
+        .trending-button-healing {
+            position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(127, 176, 105, 0.2);
+            border-radius: 15px;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-gentle);
+            text-align: left;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .trending-button-healing:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--healing-green);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .trending-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.4s ease;
+        }
+        
+        .trending-button-healing:hover .trending-image {
+            transform: scale(1.05);
+        }
+        
+        .trending-number {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gradient-healing);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(127, 176, 105, 0.3);
+        }
+        
+        .default-ltr-cache-3xjlkv {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .trending-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-healing);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .trending-button-healing:hover .trending-animation {
+            transform: scaleX(1);
+        }
+        
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-                letter-spacing: -1px;
-            }
-            
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-            
-            .feature-card-modern {
-                padding: 2rem 1.5rem;
-            }
-            
-            .contact-card {
-                padding: 2rem;
+        @media (max-width: 992px) {
+            .trending-item-healing {
+                width: calc(33.33% - 15px);
             }
         }
         
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+        @media (max-width: 768px) {
+            .hero-title-healing {
+                font-size: 3rem;
+            }
+            
+            .pricing-card-healing.featured {
+                transform: scale(1);
+            }
+            
+            .service-card-healing, .pricing-card-healing {
+                padding: 2rem;
+            }
+            
+            .trending-item-healing {
+                width: calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .trending-item-healing {
+                width: 100%;
+            }
         }
         
         /* Custom Scrollbar */
@@ -483,56 +646,245 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--netflix-dark);
+            background: var(--cream);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
+            background: var(--gradient-healing);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #ff1e2d 0%, #E50914 100%);
+            background: linear-gradient(135deg, #6BA055 0%, #95C7C9 100%);
+        }
+        
+        /* Smooth animations */
+        .gentle-fade-in {
+            animation: gentleFadeIn 1s ease-out;
+        }
+        
+        @keyframes gentleFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Trending Sidebar Styles */
+        .trending-sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .trending-sidebar-item {
+            margin-bottom: 24px;
+        }
+        .trending-sidebar-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(127, 176, 105, 0.2);
+            border-radius: 18px;
+            box-shadow: var(--shadow-gentle);
+            padding: 10px 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-align: left;
+            gap: 18px;
+        }
+        .trending-sidebar-btn:hover {
+            border-color: var(--healing-green);
+            box-shadow: var(--shadow-soft);
+            background: rgba(127, 176, 105, 0.08);
+        }
+        .trending-sidebar-img {
+            width: 120px;
+            height: 70px;
+            min-width: 120px;
+            min-height: 70px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            margin-right: 0;
+            transition: transform 0.3s;
+        }
+        .trending-sidebar-btn:hover .trending-sidebar-img {
+            transform: scale(1.05);
+        }
+        .trending-sidebar-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .trending-sidebar-rank {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--healing-green);
+        }
+        .trending-sidebar-title {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        @media (max-width: 992px) {
+            .trending-sidebar-img {
+                width: 90px;
+                height: 55px;
+            }
+        }
+        @media (max-width: 768px) {
+            .trending-sidebar-img {
+                width: 70px;
+                height: 40px;
+            }
+            .trending-sidebar-title {
+                font-size: 0.95rem;
+            }
+        }
+        /* Trending Carousel Styles */
+        .trending-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .trending-carousel-btn {
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .trending-carousel-btn:hover {
+            background: var(--healing-green);
+            color: #fff;
+        }
+        .trending-carousel-prev {
+            left: -24px;
+        }
+        .trending-carousel-next {
+            right: -24px;
+        }
+        .trending-carousel-track {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        .trending-carousel-item {
+            flex: 0 0 220px;
+            max-width: 220px;
+        }
+        .trending-carousel-img {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border-radius: 18px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+        .trending-carousel-rank {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 4rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-family: 'Comfortaa', sans-serif;
+            opacity: 0.95;
+        }
+        .trending-carousel-title {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            right: 18px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+            font-family: 'Quicksand', 'Poppins', sans-serif;
+            opacity: 0.98;
+        }
+        @media (max-width: 992px) {
+            .trending-carousel-item {
+                flex: 0 0 160px;
+                max-width: 160px;
+            }
+            .trending-carousel-img {
+                height: 220px;
+            }
+            .trending-carousel-rank {
+                font-size: 2.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .trending-carousel-item {
+                flex: 0 0 120px;
+                max-width: 120px;
+            }
+            .trending-carousel-img {
+                height: 150px;
+            }
+            .trending-carousel-title {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Enhanced Background -->
-    <div class="animated-bg"></div>
-    <div class="particles-container">
-        <div class="particle" style="width: 4px; height: 4px; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="width: 6px; height: 6px; left: 20%; animation-delay: 3s;"></div>
-        <div class="particle" style="width: 3px; height: 3px; left: 30%; animation-delay: 6s;"></div>
-        <div class="particle" style="width: 8px; height: 8px; left: 40%; animation-delay: 9s;"></div>
-        <div class="particle" style="width: 5px; height: 5px; left: 50%; animation-delay: 12s;"></div>
-        <div class="particle" style="width: 7px; height: 7px; left: 60%; animation-delay: 15s;"></div>
-        <div class="particle" style="width: 4px; height: 4px; left: 70%; animation-delay: 18s;"></div>
-        <div class="particle" style="width: 6px; height: 6px; left: 80%; animation-delay: 21s;"></div>
-        <div class="particle" style="width: 5px; height: 5px; left: 90%; animation-delay: 24s;"></div>
+    <!-- Healing Background -->
+    <div class="healing-bg"></div>
+    <div class="nature-elements">
+        <div class="leaf"><i class="fas fa-leaf"></i></div>
+        <div class="leaf"><i class="fas fa-seedling"></i></div>
+        <div class="leaf"><i class="fas fa-spa"></i></div>
     </div>
     
-    <!-- Enhanced Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+    <!-- Gentle Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-healing">
         <div class="container">
-            <a class="navbar-brand navbar-brand-custom" href="#home">
+            <a class="navbar-brand navbar-brand-healing" href="#home">
                 NETFLIX HADU
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="text-white"><i class="fas fa-bars"></i></span>
+                <span style="color: var(--healing-green);"><i class="fas fa-bars"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="#home">Trang Chủ</a>
+                        <a class="nav-link nav-link-healing" href="#home">Trang Chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="#features">Tính Năng</a>
+                        <a class="nav-link nav-link-healing" href="#trending">Thịnh Hành</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="#pricing">Bảng Giá</a>
+                        <a class="nav-link nav-link-healing" href="#services">Dịch Vụ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="#contact">Liên Hệ</a>
+                        <a class="nav-link nav-link-healing" href="#pricing">Bảng Giá</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-healing" href="#contact">Liên Hệ</a>
                     </li>
                 </ul>
             </div>
@@ -540,65 +892,153 @@
     </nav>
     
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section id="home" class="hero-healing">
         <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-8 mx-auto text-center">
-                    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-                        <h1 class="hero-title">Trải Nghiệm Netflix Premium</h1>
-                        <p class="hero-subtitle mx-auto">Xem phim và chương trình truyền hình không giới hạn với chất lượng cao nhất</p>
-                        <a href="#pricing" class="btn-netflix">
-                            <i class="fas fa-play"></i>
-                            Xem Gói Giá
-                        </a>
+            <div class="row">
+                <div class="col-12">
+                    <div data-aos="fade-up" data-aos-duration="1000" class="gentle-fade-in">
+                        <h1 class="hero-title-healing">NETFLIX HADU<br></h1>
+                        <p class="hero-subtitle-healing">Trải nghiệm Netflix Premium trong không gian yên bình, thư giãn. Chất lượng 4K Ultra HD cùng âm thanh Dolby Atmos mang đến những phút giây nghỉ ngơi hoàn hảo.</p>
+                        <div class="text-center">
+                            <a href="#services" class="btn-healing me-3">
+                                <i class="fas fa-leaf"></i>
+                                Khám Phá Ngay
+                            </a>
+                            <a href="#pricing" class="btn-healing btn-soft">
+                                <i class="fas fa-heart"></i>
+                                Xem Gói Giá
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Features Section -->
-    <section id="features" class="py-5" style="background: rgba(20, 20, 20, 0.9);">
+    <!-- Trending Section -->
+    <section id="trending" class="py-5" style="background: rgba(255, 255, 255, 0.5);">
         <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">
-                        <span style="background: linear-gradient(45deg, #ffffff, #E50914); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            Tại Sao Chọn Netflix Premium?
-                        </span>
-                    </h2>
+            <div class="section-header-healing" data-aos="fade-up">
+                <h2 class="section-title-healing">Hiện Đang Thịnh Hành</h2>
+                <p class="section-subtitle-healing">Khám phá những nội dung được yêu thích nhất trên Netflix</p>
+            </div>
+            <div class="trending-carousel-wrapper">
+                <button class="trending-carousel-btn trending-carousel-prev" aria-label="Trước"><i class="fas fa-chevron-left"></i></button>
+                <div class="trending-carousel-track">
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABXl0xzqZpOZb_eiNp5Q1hdFO2cCbvdxJw8janjoZB91oMZXXfI2uHGTQJHi4itB6ke_ZHCxIFbZ0qc0nyDiReO0vcO8HmTl9h97RSf-0Y3rxb4wQC95vD_egDWx0WZMi3kaX.webp?r=8b8');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABeWwFbA6-32eZF64Dwnt-r9SSolJK_5iV8TISrWHCcsp1vmOfKKoZFGGNEIdJpm1O9gbUTlbXXoLBD-dDJq2xsoxAyM3YVFU1okJFRifRl_AoiL0KmnkH9lq-x0iZSvokGNw.webp?r=0e6');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABT-FxFDOrZi4HSsP6xEF-07TzxG0zWXaSP7yc8y4K9DMcoX3dSBnpiom60ZYTMPIWxtgAThWzyVI1KVbufApp0s8ky25JRrAHxI.webp?r=08e');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZcdeMf4uVu2pi4WeYl_GDZ2yUlPOnE2RICEWzhdXbrzcmdQU0V-ciPNY1diaH5UmfCQ568hAL8C6ZN9_HB9lV-5O-RLztMD_78.webp?r=2c0');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABXfxlp8bXL5Z1lrkSAqWVBHOU8NU6L0XTI0s7fyTSmG8LBWjTLbWcbnKlbJbWdsK8CErc51huoRD7d1u8i6qD5CAL36nCWx0v4dFmB95HwK_LdNVfAxzRAoWAbzbVuKD9exY.webp?r=ebc');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABXBEGajFSnQgsq4vfNKCAr-tTVxjX85eWXYJlq-uDNc4ut2u7JtEwm1bFM_oPCu4TClLQDQRgs1uteSrpRN72FdaAGVgMlVhw1VfaYUZQoxo3kzbateNaQ62zZVSm6pmP54t.webp?r=4db');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABb9gQ4FyXjSC66ydJajLUQ1_jN6ARbyBhUYTmy0saDXK1GUgDPpIVZYE0uzLa9C-PouUEKs_VUL_PuTWnky7SGjB8udP6iwo25QVPcYzuNGrA3UeUsSG3fQQr209tky3--rz.webp?r=598');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABW1AAajnF8nuslA78bPW5Kk2n8v3h9zR6BPnnHv6KKMurbDgjDDamnGc9JOxcadngaJOX3vtqqbTRp_YvjG6Wos1Q5JC7_K3gPrr_MjEA9a1-YdoWnqRQHMqCoP_Ddrx4l8W.webp?r=f3c');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABf2GjkRvK7kyjCPqEAcbp3lVpu4dJKDK5jzLDJ7-jW2SQZsXTQdmCd69n2-hNT9QtrkWIodpUkBJ-jrm3maUcZFJbjssGzFWdS8.webp?r=0db');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
+                    <div class="trending-carousel-item">
+                        <div class="trending-carousel-img" style="background-image: url('https://occ-0-325-395.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWBXn0yAwKNQLzNI4ZmKYL5v7E6MhzgAYetBo9ZY7flXz7Deb76fCHKPVme4yQvwSRDA1Lt-3pP92yjPVRRro6peQM_q74TOJsI.webp?r=d77');">
+                            <span class="trending-carousel-rank"></span>
+                            <span class="trending-carousel-title"></span>
+                        </div>
+                    </div>
                 </div>
+                <button class="trending-carousel-btn trending-carousel-next" aria-label="Sau"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Section -->
+    <section id="services" class="py-5">
+        <div class="container py-5">
+            <div class="section-header-healing" data-aos="fade-up">
+                <h2 class="section-title-healing">Dịch Vụ Của Chúng Tôi</h2>
+                <p class="section-subtitle-healing">Trải nghiệm Netflix Premium với chất lượng cao nhất, đa nền tảng và hỗ trợ 24/7</p>
             </div>
             
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card-modern">
-                        <div class="feature-icon-modern">
-                            <i class="fas fa-infinity"></i>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-healing">
+                        <div class="service-icon-healing">
+                            <i class="fas fa-tv"></i>
                         </div>
-                        <h3 class="h4 fw-bold mb-3">Xem Không Giới Hạn</h3>
-                        <p class="text-light opacity-75">Truy cập toàn bộ thư viện phim và chương trình truyền hình bản quyền</p>
+                        <h3 class="service-title-healing">Chất Lượng 4K Ultra HD</h3>
+                        <p class="service-desc-healing">Trải nghiệm hình ảnh sắc nét với độ phân giải cao nhất, âm thanh Dolby Atmos sống động mang đến cảm giác như rạp chiếu phim.</p>
+                        <a href="#pricing" class="btn-healing btn-soft">
+                            <i class="fas fa-arrow-right"></i>
+                            Xem Chi Tiết
+                        </a>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card-modern">
-                        <div class="feature-icon-modern d-flex align-items-center justify-content-center">
-                            <i class="fas fa-tv me-2"></i>
-                            <span style="background: linear-gradient(45deg, #E50914, #ff1e2d); color: #fff; font-weight: 900; font-size: 1rem; padding: 4px 8px; border-radius: 6px; font-family: 'Bebas Neue', cursive; letter-spacing: 1px; box-shadow: 0 2px 10px rgba(229, 9, 20, 0.3);">4K</span>
-                        </div>
-                        <h3 class="h4 fw-bold mb-3">Chất Lượng HD & 4K</h3>
-                        <p class="text-light opacity-75">Trải nghiệm hình ảnh sắc nét với âm thanh vòm không quảng cáo không giật lag</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card-modern">
-                        <div class="feature-icon-modern">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-healing">
+                        <div class="service-icon-healing">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3 class="h4 fw-bold mb-3">Xem Trên Nhiều Thiết Bị</h3>
-                        <p class="text-light opacity-75">Xem trên TV, máy tính, điện thoại và máy tính bảng</p>
+                        <h3 class="service-title-healing">Đa Nền Tảng</h3>
+                        <p class="service-desc-healing">Xem trên nhiều thiết bị cùng lúc: Smart TV, điện thoại, máy tính bảng, laptop. Tương thích với mọi hệ điều hành.</p>
+                        <a href="#pricing" class="btn-healing btn-soft">
+                            <i class="fas fa-arrow-right"></i>
+                            Xem Chi Tiết
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card-healing">
+                        <div class="service-icon-healing">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="service-title-healing">Hỗ Trợ 24/7</h3>
+                        <p class="service-desc-healing">Đội ngũ hỗ trợ luôn sẵn sàng giải đáp mọi thắc mắc, khắc phục sự cố nhanh chóng qua Zalo hoặc hotline.</p>
+                        <a href="#contact" class="btn-healing btn-soft">
+                            <i class="fas fa-arrow-right"></i>
+                            Liên Hệ Ngay
+                        </a>
                     </div>
                 </div>
             </div>
@@ -606,57 +1046,184 @@
     </section>
     
     <!-- Pricing Section -->
-    <section id="pricing" class="py-5" style="background: rgba(229, 9, 20, 0.1);">
+    <section id="pricing" class="py-5" style="background: rgba(255, 255, 255, 0.5);">
         <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">
-                        <span style="background: linear-gradient(45deg, #ffffff, #E50914); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            Bảng Giá Ưu Đãi
-                        </span>
-                    </h2>
-                </div>
+            <div class="section-header-healing" data-aos="fade-up">
+                <h2 class="section-title-healing">Bảng Giá Dịch Vụ</h2>
+                <p class="section-subtitle-healing">Lựa chọn gói phù hợp với nhu cầu của bạn</p>
             </div>
             
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pricing-card">
-                        <h3 class="h4 fw-bold mb-3">Gói 1 Tháng</h3>
-                        <div class="price-amount">55.000₫</div>
-                        <p class="mb-4">Truy cập đầy đủ tính năng Netflix Premium</p>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card-healing">
+                        <h3 class="service-title-healing">Gói Cơ Bản</h3>
+                        <div class="price-tag-healing">55K</div>
+                        <p class="price-duration-healing">1 tháng</p>
                         
-                        <ul class="list-unstyled text-start mb-4">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Xem trên 1 thiết bị tại 1 thời điểm</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Chất lượng Ultra HD (4K) và HDR</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tải xuống để xem ngoại tuyến</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Không quảng cáo</li>
+                        <ul class="feature-list-healing">
+                            <li><i class="fas fa-check-circle"></i> Chất lượng 4K</li>
+                            <li><i class="fas fa-check-circle"></i> Xem trên 1 thiết bị</li>
+                            <li><i class="fas fa-check-circle"></i> Hỗ trợ kỹ thuật</li>
+                            <li><i class="fas fa-check-circle"></i> Không quảng cáo</li>
                         </ul>
                         
-                        <a href="#contact" class="btn-netflix w-100">
-                            <i class="fas fa-shopping-cart"></i>
+                        <a href="#contact" class="btn-healing">
+                            <i class="fas fa-leaf"></i>
+                            Đăng Ký Ngay
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-card-healing featured">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-3">Phổ biến</span>
+                        <h3 class="service-title-healing">Gói Premium</h3>
+                        <div class="price-tag-healing">100K</div>
+                        <p class="price-duration-healing">2 tháng</p>
+                        
+                        <ul class="feature-list-healing">
+                            <li><i class="fas fa-check-circle"></i> Tiết kiệm 10k</li>
+                            
+                            <li><i class="fas fa-check-circle"></i> Chất lượng 4K Ultra HD</li>
+                            <li><i class="fas fa-check-circle"></i> Xem trên 4 thiết bị</li>
+                            <li><i class="fas fa-check-circle"></i> Hỗ trợ kỹ thuật ưu tiên</li>
+                            <li><i class="fas fa-check-circle"></i> Không quảng cáo</li>
+                            <li><i class="fas fa-check-circle"></i> Dolby Atmos</li>
+                        </ul>
+                        
+                        <a href="#contact" class="btn-healing">
+                            <i class="fas fa-leaf"></i>
                             Đăng Ký Ngay
                         </a>
                     </div>
                 </div>
                 
-                <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pricing-card featured">
-                        <h3 class="h4 fw-bold mb-3">Gói 2 Tháng</h3>
-                        <div class="price-amount">100.000₫</div>
-                        <p class="mb-4">Tiết kiệm 10.000₫ so với mua 2 gói 1 tháng</p>
-                        
-                        <ul class="list-unstyled text-start mb-4">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tất cả tính năng của gói 1 tháng</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Xem trên 1 thiết bị tại 1 thời điểm</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Chất lượng Ultra HD (4K) và HDR</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tải xuống để xem ngoại tuyến</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Không quảng cáo</li>
-                        </ul>
-                        
-                        <a href="#contact" class="btn-netflix w-100">
-                            <i class="fas fa-crown"></i>
-                            Đăng Ký Ngay
-                        </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="section-header-healing" data-aos="fade-up">
+                <h2 class="section-title-healing">Câu Hỏi Thường Gặp</h2>
+                <p class="section-subtitle-healing">Giải đáp những thắc mắc phổ biến về dịch vụ Netflix ColdBrew</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="faq-item-healing">
+                        <button class="faq-question-healing">
+                            Làm thế nào để đăng ký dịch vụ?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer-healing">
+                            Bạn có thể đăng ký dịch vụ bằng cách liên hệ với chúng tôi qua Zalo hoặc hotline. Sau khi thanh toán, chúng tôi sẽ gửi thông tin tài khoản qua tin nhắn Zalo hoặc email của bạn trong vòng 5-10 phút.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-healing">
+                        <button class="faq-question-healing">
+                            Tôi có thể xem trên những thiết bị nào?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer-healing">
+                            Bạn có thể xem Netflix trên nhiều thiết bị khác nhau như Smart TV, điện thoại, máy tính bảng, laptop, PC, máy chơi game.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-healing">
+                        <button class="faq-question-healing">
+                            Chất lượng hình ảnh như thế nào?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer-healing">
+                            Chúng tôi cung cấp dịch vụ Netflix với chất lượng cao nhất - 4K Ultra HD (2160p) và âm thanh Dolby Atmos trên các gói Premium. Tuy nhiên, chất lượng thực tế còn phụ thuộc vào thiết bị và tốc độ internet của bạn.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-healing">
+                        <button class="faq-question-healing">
+                            Làm sao để thanh toán?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer-healing">
+                            Chúng tôi hỗ trợ nhiều phương thức thanh toán như chuyển khoản ngân hàng, ví điện tử (MoMo, ZaloPay, VNPay), thẻ cào điện thoại. Sau khi đặt hàng, chúng tôi sẽ gửi thông tin thanh toán chi tiết qua Zalo.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-healing">
+                        <button class="faq-question-healing">
+                            Nếu gặp sự cố kỹ thuật thì sao?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer-healing">
+                            Đội ngũ hỗ trợ kỹ thuật của chúng tôi luôn sẵn sàng 24/7. Bạn có thể liên hệ qua Zalo hoặc hotline bất cứ lúc nào để được hỗ trợ nhanh chóng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial Section -->
+    <section class="py-5" style="background: rgba(255, 255, 255, 0.5);">
+        <div class="container py-5">
+            <div class="section-header-healing" data-aos="fade-up">
+                <h2 class="section-title-healing">Khách Hàng Nói Gì</h2>
+                <p class="section-subtitle-healing">Những trải nghiệm thực tế từ người dùng dịch vụ Netflix ColdBrew</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card-healing">
+                        <div class="mb-4">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-4">"Dịch vụ quá tuyệt vời! Hình ảnh 4K sắc nét, âm thanh sống động như rạp chiếu phim. Hỗ trợ kỹ thuật cực nhanh, chỉ 5 phút đã giải quyết xong vấn đề."</p>
+                        <div>
+                            <h5 class="service-title-healing mb-1">Minh Anh</h5>
+                            <p class="text-muted small">Khách hàng gói Premium</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card-healing">
+                        <div class="mb-4">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-4">"Đã dùng được 6 tháng và chưa bao giờ gặp lỗi. Xem phim cực mượt trên cả TV và điện thoại. Giá cả hợp lý, dịch vụ chuyên nghiệp. Sẽ tiếp tục gia hạn!"</p>
+                        <div>
+                            <h5 class="service-title-healing mb-1">Thanh Hà</h5>
+                            <p class="text-muted small">Khách hàng gói Gia Đình</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card-healing">
+                        <div class="mb-4">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="mb-4">"Ban đầu hơi lo lắng về chất lượng, nhưng sau khi dùng thử thì thực sự ấn tượng. Phim 4K siêu nét, nhiều nội dung hay, hỗ trợ nhiệt tình. Đáng đồng tiền!"</p>
+                        <div>
+                            <h5 class="service-title-healing mb-1">Quang Minh</h5>
+                            <p class="text-muted small">Khách hàng gói Tiêu Chuẩn</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -664,209 +1231,39 @@
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="py-5" style="background: rgba(20, 20, 20, 0.9);">
+    <section id="contact" class="py-5">
         <div class="container py-5">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">
-                        <span style="background: linear-gradient(45deg, #ffffff, #E50914); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            Liên Hệ Đặt Mua
-                        </span>
-                    </h2>
-                </div>
-            </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="row g-4">
-                            <div class="col-md-12 text-center">
-                                <div class="mb-4">
-                                    <i class="fas fa-comments" style="font-size: 4rem; color: #0068FF;"></i>
-                                </div>
-                                <h4 class="fw-bold mb-3">Zalo</h4>
-                                <p class="mb-4 opacity-75">Liên hệ qua Zalo để được hỗ trợ 24/7</p>
-                                <a href="https://zalo.me/0362565618" class="zalo-btn">
-                                    <i class="fas fa-comments"></i>
-                                    Chat Zalo
-                                </a>
-                            </div>
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-card-healing" data-aos="fade-up">
+                        <div class="section-header-healing mb-5">
+                            <h2 class="section-title-healing">Thông tin thanh toán</h2>
+                            <p class="section-subtitle-healing">Đăng ký dịch vụ hoặc nhận tư vấn miễn phí</p>
                         </div>
                         
-                        <div class="row mt-5">
-                            <div class="col-12 text-center">
-                                <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fas fa-shield-alt text-success" style="font-size: 1.5rem;"></i>
-                                        <span class="fw-semibold">Bảo mật 100%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fas fa-clock text-warning" style="font-size: 1.5rem;"></i>
-                                        <span class="fw-semibold">Hỗ trợ 24/7</span>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fas fa-rocket text-info" style="font-size: 1.5rem;"></i>
-                                        <span class="fw-semibold">Kích hoạt nhanh</span>
-                                    </div>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="mb-5">
+                                    <h4 class="service-title-healing mb-3">Thông Tin Liên Hệ</h4>
+                                    <p><i class="fas fa-phone-alt me-2 text-primary"></i> Hotline: 0362565618</p>
+                                    <p><i class="fas fa-envelope me-2 text-primary"></i> Email: tranthihuongmaya@gmail.com</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="service-title-healing mb-3">Thời Gian Hỗ Trợ</h4>
+                                    <p><i class="far fa-clock me-2 text-primary"></i> 8:00 - 22:00 (Thứ 2 - Chủ Nhật)</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section class="py-5" style="background: rgba(229, 9, 20, 0.05);">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">
-                        <span style="background: linear-gradient(45deg, #ffffff, #E50914); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            Câu Hỏi Thường Gặp
-                        </span>
-                    </h2>
-                </div>
-            </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            Netflix Premium phim gì cũng có?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            Netflix Premium là nền tảng xem phim bản quyền trả phí lớn nhất trên thế giới, vì phải mua bản quyền cho nên không phải phim nào cũng sẽ có trên Netflix bạn nên kiểm tra nội dung bạn muốn xem có trên Netflix không.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            Tài khoản có bị khóa không?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            Tài khoản sẽ có rủi ro bị khóa và chúng tôi sẽ bảo hành.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            Có thể đổi mật khẩu không?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            Bạn không được đổi mật khẩu chỉ sử dụng tài khoản mà chúng tôi cung cấp.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            Thanh toán như thế nào?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            Chúng tôi hỗ trợ thanh toán qua banking, Momo. Sau khi thanh toán, tài khoản sẽ được gửi trong vòng 5-10 phút.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            Chính sách bảo hành?
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            chúng tôi sẽ cung cấp tài khoản mới trong trường hợp tài khoản cũ bị sai mật khẩu, không xem được.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section class="py-5" style="background: rgba(20, 20, 20, 0.9);">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">
-                        <span style="background: linear-gradient(45deg, #ffffff, #E50914); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            Khách Hàng Nói Gì
-                        </span>
-                    </h2>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card-modern text-center">
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-center mb-3">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                            </div>
-                            <p class="mb-4 opacity-75">"Tài khoản hoạt động rất ổn định, chất lượng 4K rất đẹp. Giá cả hợp lý, sẽ mua tiếp!"</p>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-3 me-3">
-                                <i class="fas fa-user text-white"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Anh Minh</h6>
-                                <small class="opacity-75">Khách hàng thân thiết</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card-modern text-center">
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-center mb-3">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                            </div>
-                            <p class="mb-4 opacity-75">"Dịch vụ tuyệt vời, hỗ trợ nhiệt tình. Tài khoản nhận được rất nhanh và hoạt động tốt."</p>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-3 me-3">
-                                <i class="fas fa-user text-white"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Chị Lan</h6>
-                                <small class="opacity-75">Khách hàng VIP</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card-modern text-center">
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-center mb-3">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                            </div>
-                            <p class="mb-4 opacity-75">"Giá rẻ mà chất lượng cao, xem phim 4K mượt mà. Đã giới thiệu cho nhiều bạn bè!"</p>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="bg-gradient-to-r from-green-500 to-teal-500 rounded-full p-3 me-3">
-                                <i class="fas fa-user text-white"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Anh Tuấn</h6>
-                                <small class="opacity-75">Khách hàng mới</small>
+                            
+                            <div class="col-md-6 text-center">
+                                <h4 class="service-title-healing mb-4">Quét Mã QR Để Thanh Toán</h4>
+                                <div class="qr-code-healing mb-4">
+                                    <img src="https://pasteimg.com/images/2025/06/13/image77b859923a95b2b6.png" alt="QR Code Zalo" class="img-fluid">
+                                </div>
+                                <a href="https://zalo.me/0362565618" class="zalo-btn-healing">
+                                    <i class="fas fa-comments"></i>
+                                    Gửi bill qua zalo ngay
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -876,179 +1273,83 @@
     </section>
     
     <!-- Footer -->
-    <footer class="py-5" style="background: var(--netflix-dark); border-top: 1px solid rgba(229, 9, 20, 0.2);">
+    <footer class="py-4" style="background: rgba(127, 176, 105, 0.1);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h3 class="navbar-brand-custom mb-4">NETFLIX HADU</h3>
-                    <p class="opacity-75 mb-4">Cung cấp tài khoản Netflix Premium chất lượng cao với giá ưu đãi nhất thị trường.</p>
-                    
+            <div class="row g-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <h4 class="navbar-brand-healing mb-4">Netflix HADU</h4>
+                    <p>Dịch vụ Netflix Premium chất lượng cao, uy tín hàng đầu Việt Nam. Trải nghiệm giải trí thư giãn với hình ảnh 4K Ultra HD và âm thanh Dolby Atmos.</p>
                 </div>
                 
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="fw-bold mb-3">Dịch Vụ</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white opacity-75 text-decoration-none hover:opacity-100">Netflix Premium</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="fw-bold mb-3">Hỗ Trợ</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white opacity-75 text-decoration-none hover:opacity-100">Câu hỏi thường gặp</a></li>
-                        <li class="mb-2"><a href="#" class="text-white opacity-75 text-decoration-none hover:opacity-100">Hướng dẫn sử dụng</a></li>
-                        <li class="mb-2"><a href="#" class="text-white opacity-75 text-decoration-none hover:opacity-100">Chính sách bảo hành</a></li>
-                        <li class="mb-2"><a href="#" class="text-white opacity-75 text-decoration-none hover:opacity-100">Liên hệ</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3">Liên Hệ</h5>
-                    <div class="mb-3">
-                        <i class="fas fa-envelope me-2 text-netflix-red"></i>
-                        <span class="opacity-75">tranthihuongmaya@gmail.com</span>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-3">© 2025 Netflix HADU. All rights reserved.</p>
                     </div>
-                    <div class="mb-3">
-                        <i class="fas fa-phone me-2 text-netflix-red"></i>
-                        <span class="opacity-75">0362 565 618</span>
-                    </div>
-                    <div class="mb-3">
-                        <i class="fas fa-clock me-2 text-netflix-red"></i>
-                        <span class="opacity-75">Hỗ trợ 24/7</span>
-                    </div>
-                </div>
-            </div>
-            
-            <hr class="my-4" style="border-color: rgba(229, 9, 20, 0.2);">
-            
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0 opacity-75">&copy; Netflix HADU since 2020</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white opacity-75 text-decoration-none me-3 hover:opacity-100">Chính sách bảo mật</a>
-                    <a href="#" class="text-white opacity-75 text-decoration-none hover:opacity-100">Điều khoản sử dụng</a>
                 </div>
             </div>
         </div>
     </footer>
     
-    <!-- Floating Action Buttons -->
-    <div class="fixed-bottom p-4">
-        <div class="d-flex flex-column gap-3 align-items-end">
-            <a href="https://zalo.me/0362565618" class="btn btn-primary rounded-circle p-3 shadow-lg" style="background: #0068FF; border: none; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-comments fa-lg"></i>
-            </a>
-            <a href="#home" class="btn btn-netflix rounded-circle p-3 shadow-lg" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-arrow-up fa-lg"></i>
-            </a>
-        </div>
-    </div>
-    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- AOS Animation JS -->
+    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <!-- Custom JavaScript -->
     <script>
-        // Initialize AOS
+        // Initialize AOS Animation
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
-            once: true,
-            mirror: false
+            once: true
         });
         
-        // FAQ Toggle Function
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const icon = button.querySelector('i');
-            
-            if (answer.classList.contains('show')) {
-                answer.classList.remove('show');
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                // Close all other FAQs
-                document.querySelectorAll('.faq-answer.show').forEach(item => {
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question-healing').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer-healing').forEach(item => {
                     item.classList.remove('show');
                 });
-                document.querySelectorAll('.faq-question i').forEach(item => {
-                    item.style.transform = 'rotate(0deg)';
+                
+                document.querySelectorAll('.faq-question-healing i').forEach(icon => {
+                    icon.className = 'fas fa-chevron-down';
                 });
                 
-                // Open current FAQ
-                answer.classList.add('show');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                // Open clicked answer if it was closed
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    button.querySelector('i').className = 'fas fa-chevron-up';
                 }
             });
         });
         
-        // Navbar background change on scroll
+        // Navbar scroll effect
         window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar-custom');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(20, 20, 20, 0.98)';
+            const navbar = document.querySelector('.navbar-healing');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.8rem 0';
+                navbar.style.boxShadow = '0 10px 30px rgba(127, 176, 105, 0.1)';
             } else {
-                navbar.style.background = 'rgba(20, 20, 20, 0.95)';
+                navbar.style.padding = '1.2rem 0';
+                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
             }
         });
         
-        // Add loading animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease-in-out';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-        
-        // Add click tracking for buttons
-        document.querySelectorAll('.btn-netflix, .zalo-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Add ripple effect
-                const ripple = document.createElement('span');
-                ripple.style.position = 'absolute';
-                ripple.style.borderRadius = '50%';
-                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-                ripple.style.transform = 'scale(0)';
-                ripple.style.animation = 'ripple 0.6s linear';
-                ripple.style.left = (e.clientX - e.target.offsetLeft) + 'px';
-                ripple.style.top = (e.clientY - e.target.offsetTop) + 'px';
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+        // Trending Carousel Scroll
+        const trendingTrack = document.querySelector('.trending-carousel-track');
+        const prevBtn = document.querySelector('.trending-carousel-prev');
+        const nextBtn = document.querySelector('.trending-carousel-next');
+        if (trendingTrack && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                trendingTrack.scrollBy({ left: -250, behavior: 'smooth' });
             });
-        });
-        
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+            nextBtn.addEventListener('click', () => {
+                trendingTrack.scrollBy({ left: 250, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
